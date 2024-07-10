@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+
+	<title>CONSULTAR DATOS</title>
+</head>
+<body>
+    <div><section class="form-ingreso">
+	<h1>CONSULTAR DATOS</h1>
+
+	<form method="post" action="../controlador/consulta.php">
+	                        <div class="input-contenedor">
+        Numero de documento: <input class="control" type="number" name="ndoc">
+        <input class="boton" type="submit" name="enviar" value="consultar">
+		<p>volver al inicio<a class="link" href="inicio.php"> inicio</a></p>
+	</form>
+</section>
+</body>
+</html>
+
+
+
+
+<?php
+
+if ($_POST){
+
+	$no_doc_usuario= $_POST['ndoc'];
+
+	require_once('../modelo/consul.php');
+}
+?>
+
+
+<?php
+$conn = new PDO('mysql:host=localhost;dbname=palomitas_dulces2',"root","");
+$no_doc_usuario = $_POST['ndoc'];
+$result = $conn->query("SELECT `tipo_doc_usuario`, `no_doc_usuario`, `nombre_usuario`, `apellido_usuario`, `direccion_usuario`, `telefono_usuario`, `correo_usuario`, `password_usuario`, `estado_usuario` FROM `usuario` WHERE no_doc_usuario = $no_doc_usuario");
+if (!$result)
+{
+print "<p> ERROR ".$conn->errorinfo(). "</p>";
+}
+while ($row = $result->fetch())
+{
+print "<p>Datos del Usuario: <p>TIPO DE DOCUMENTO:  {$row[0]} <p> NUMERO DE DOCUMENTO:  {$row[1]}<p> NOMBRE:  {$row[2]} <p>APELLIDO:  {$row[3]}<p>DIRECCIÓN:  {$row[4]}<p>TELÉFONO:  {$row[5]} <p>CORREO:  {$row[6]}<p>CONTRASEÑA:  {$row[7]}<p>ESTADO:  {$row[8]}";
+}
+?>
+
+
+
