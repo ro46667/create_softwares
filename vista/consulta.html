@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f4f4f4;
+			margin: 0;
+			padding: 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+		}
+
+		.container {
+			text-align: center;
+			background-color: #ffffff;
+			padding: 40px;
+			border-radius: 10px;
+			box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+			max-width: 400px;
+			width: 100%;
+		}
+
+		h1 {
+			color: #333333;
+			font-size: 24px;
+			margin-bottom: 20px;
+		}
+
+		input[type="number"] {
+			width: 100%;
+			padding: 10px;
+			font-size: 16px;
+			border: 1px solid #dddddd;
+			border-radius: 5px;
+			margin-bottom: 20px;
+		}
+
+		.boton {
+			width: 100%;
+			padding: 10px;
+			font-size: 16px;
+			background-color: #333333;
+			color: #ffffff;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			transition: background-color 0.3s ease;
+		}
+
+		.boton:hover {
+			background-color: #555555;
+		}
+
+		.link {
+			color: #333333;
+			text-decoration: none;
+			transition: color 0.3s ease;
+		}
+
+		.link:hover {
+			color: #555555;
+		}
+	</style>
+
+	<title>Consultar Datos</title>
+</head>
+<body>
+	<div class="container">
+		<h1>Consultar Datos</h1>
+		<form method="post" action="../controlador/consulta.php">
+			<div class="input-contenedor">
+				<p>Número de documento:</p>
+				<input class="control" type="number" name="ndoc" required>
+				<input class="boton" type="submit" name="enviar" value="Consultar">
+			</div>
+		</form>
+		<p>Volver al inicio <a class="link" href="nuevoinicio.html">Inicio</a></p>
+	</div>
+</body>
+</html>
